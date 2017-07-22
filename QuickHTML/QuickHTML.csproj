@@ -82,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Templates\.gitignore">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\reset.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -98,7 +101,6 @@
     <None Include="Templates\jsconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="QuickHTML_TemporaryKey.pfx" />
     <None Include="Templates\typings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

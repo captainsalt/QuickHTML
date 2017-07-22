@@ -48,7 +48,6 @@ namespace QuickHTML
 
                 switch (tFile.Extension)
                 {
-                    case ".html": case ".json": break;
                     case ".js": folderPath = @"assets\scripts"; break;
                     case ".css": folderPath = @"assets\css"; break;
                 }
