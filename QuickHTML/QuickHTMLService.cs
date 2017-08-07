@@ -9,19 +9,15 @@ namespace QuickHTML
         string _projectDirName = "QuickHTML";
         string _projectDirRoot;
 
-        public QuickHTMLService()
-        {
-            Initialize();
-        }
+        public QuickHTMLService() { }
 
         public QuickHTMLService(string projectDirectory, string projectName)
         {
             _projectDirectory = projectDirectory;
             _projectDirName = projectName;
-            Initialize();
         }
 
-        void Initialize()
+        public void CreateProject()
         {
             _projectDirRoot = Path.Combine(_projectDirectory, _projectDirName);
 

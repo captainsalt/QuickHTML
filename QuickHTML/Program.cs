@@ -21,7 +21,7 @@ namespace QuickHTML
 
                 if (key == _selectKeys[0])
                 {
-                    new QuickHTMLService();
+                    new QuickHTMLService().CreateProject();
                     break;
                 }
                 else if (key == _selectKeys[1])
@@ -56,7 +56,7 @@ namespace QuickHTML
             Console.WriteLine("What do you want the html project to be called?:");
             projectName = Console.ReadLine();
 
-            new QuickHTMLService(projectDirectory, projectName);
+            new QuickHTMLService(projectDirectory, projectName).CreateProject();
         }
     }
 }
