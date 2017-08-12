@@ -29,7 +29,7 @@ namespace QuickHTML
             var targetDirectory = new DirectoryInfo(_projectDirRoot);
             targetDirectory.Create();
 
-            CreateDirectories(@"assets", @"assets\css", @"assets\scripts");
+            CreateDirectories(@"assets", @"assets\css", @"assets\scripts", @"assets\images");
             AddTemplateFiles();
         }
 
