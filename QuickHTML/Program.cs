@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using QuickHTML.Extensions;
 using static System.ConsoleKey;
 
 namespace QuickHTML
@@ -21,7 +22,8 @@ namespace QuickHTML
 
                 if (key == _selectKeys[0])
                 {
-                    new QuickHTMLService().CreateProject();
+                    var service = new QuickHTMLService();
+                    service.CreateProject().OpenVSCode();
                     break;
                 }
                 else if (key == _selectKeys[1])
@@ -56,7 +58,8 @@ namespace QuickHTML
             Console.WriteLine("What do you want the html project to be called?:");
             projectName = Console.ReadLine();
 
-            new QuickHTMLService(projectDirectory, projectName).CreateProject();
+            var service = new QuickHTMLService(projectDirectory, projectName);
+            service.CreateProject().OpenVSCode();
         }
     }
 }

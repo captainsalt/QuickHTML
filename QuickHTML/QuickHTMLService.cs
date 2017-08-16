@@ -23,7 +23,7 @@ namespace QuickHTML
         public QuickHTMLService(string projectLocation, string projectName)
         {
             ProjectLocation = projectLocation;
-            ProjectLocation = projectName;
+            ProjectDirectoryName = projectName;
         }
 
         public QuickHTMLService CreateProject()
