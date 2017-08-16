@@ -5,32 +5,43 @@ namespace QuickHTML
 {
     class QuickHTMLService
     {
-        string _projectDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string _projectDirName = "QuickHTML";
-        string _projectDirRoot;
+        /// <summary>
+        /// Location of the project
+        /// </summary>
+        public string ProjectLocation { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        /// <summary>
+        /// Name of the project/file
+        /// </summary>
+        public string ProjectDirectoryName { get; set; } = "QuickHTML";
+        /// <summary>
+        /// Inside the project directory
+        /// </summary>
+        public string ProjectDirectoryRoot { get; set; }
 
         public QuickHTMLService() { }
 
-        public QuickHTMLService(string projectDirectory, string projectName)
+        public QuickHTMLService(string projectLocation, string projectName)
         {
-            _projectDirectory = projectDirectory;
-            _projectDirName = projectName;
+            ProjectLocation = projectLocation;
+            ProjectLocation = projectName;
         }
 
-        public void CreateProject()
+        public QuickHTMLService CreateProject()
         {
-            _projectDirRoot = Path.Combine(_projectDirectory, _projectDirName);
+            ProjectDirectoryRoot = Path.Combine(ProjectLocation, ProjectDirectoryName);
 
             //Only delete the dir if you're making a QuickHTML om the desktop
-            if (Directory.Exists(_projectDirRoot) && _projectDirName == "QuickHTML" &&
-                _projectDirectory == Environment.GetFolderPath(Environment.SpecialFolder.Desktop))
-                new DirectoryInfo(_projectDirRoot).Delete(true);
+            if (Directory.Exists(ProjectDirectoryRoot) && ProjectDirectoryName == "QuickHTML" &&
+                ProjectLocation == Environment.GetFolderPath(Environment.SpecialFolder.Desktop))
+                new DirectoryInfo(ProjectDirectoryRoot).Delete(true);
 
-            var targetDirectory = new DirectoryInfo(_projectDirRoot);
+            var targetDirectory = new DirectoryInfo(ProjectDirectoryRoot);
             targetDirectory.Create();
 
             CreateDirectories(@"assets", @"assets\css", @"assets\scripts", @"assets\images");
             AddTemplateFiles();
+
+            return this;
         }
 
         void AddTemplateFiles()
@@ -48,7 +59,7 @@ namespace QuickHTML
                     case ".css": folderPath = @"assets\css"; break;
                 }
 
-                var filePath = Path.Combine(_projectDirRoot, folderPath, tFile.Name);
+                var filePath = Path.Combine(ProjectDirectoryRoot, folderPath, tFile.Name);
                 File.Copy(tFile.FullName, filePath);
             }
         }
@@ -57,7 +68,7 @@ namespace QuickHTML
         {
             foreach (var dir in directoryPaths)
             {
-                var dirPath = Path.Combine(_projectDirRoot, dir);
+                var dirPath = Path.Combine(ProjectDirectoryRoot, dir);
                 Directory.CreateDirectory(dirPath);
             }
         }
@@ -66,7 +77,7 @@ namespace QuickHTML
         {
             foreach (var file in filePaths)
             {
-                var filePath = Path.Combine(_projectDirRoot, file);
+                var filePath = Path.Combine(ProjectDirectoryRoot, file);
                 File.Create(filePath);
             }
         }
