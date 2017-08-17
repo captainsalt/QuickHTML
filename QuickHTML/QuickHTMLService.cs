@@ -34,7 +34,7 @@ namespace QuickHTML
         {
             ProjectDirectoryRoot = Path.Combine(ProjectLocation, ProjectDirectoryName);
 
-            //Only delete the dir if you're making a QuickHTML om the desktop
+            //Only delete the dir if you're making a QuickHTML on the desktop
             if (Directory.Exists(ProjectDirectoryRoot) && ProjectDirectoryName == "QuickHTML" &&
                 ProjectLocation == Environment.GetFolderPath(Environment.SpecialFolder.Desktop))
                 new DirectoryInfo(ProjectDirectoryRoot).Delete(true);
