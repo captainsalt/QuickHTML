@@ -8,19 +8,19 @@ namespace QuickHTML
         /// <summary>
         /// Location of the project
         /// </summary>
-        public string ProjectLocation { get; set; }
+        public string ProjectLocation { get; }
         /// <summary>
         /// Name of the project/file
         /// </summary>
-        public string ProjectDirectoryName { get; set; }
+        public string ProjectDirectoryName { get; }
         /// <summary>
         /// Inside the project directory
         /// </summary>
-        public string ProjectDirectoryRoot { get; set; }
+        public string ProjectDirectoryRoot { get; private set; }
 
         public QuickHTMLService()
         {
-            ProjectLocation = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); 
+            ProjectLocation = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             ProjectDirectoryName = "QuickHTML";
         }
 
