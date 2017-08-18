@@ -5,7 +5,7 @@ namespace QuickHTML
 {
     class QuickHTMLService
     {
-        /// <summary> Location of the project <summary>
+        /// <summary> Location of the project </summary>
         public string ProjectLocation { get; }
         ///<summary>Name of the project/file</summary>
         public string ProjectDirectoryName { get; }
